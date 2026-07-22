@@ -20,10 +20,10 @@ const Pagination = dynamic(() => import("@/components/Pagination/Pagination"), {
 const PER_PAGE = 12;
 
 type PropsNotesClient = {
-  category: NoteTag;
+  tag: NoteTag;
 };
 
-export default function NotesClient({ category }: PropsNotesClient) {
+export default function NotesClient({ tag }: PropsNotesClient) {
   const [page, setPage] = useState<number>(1);
   const [search, setSearch] = useState<string>("");
   const debouncedSearch = useDebounce<string>(search, 400);
@@ -34,13 +34,13 @@ export default function NotesClient({ category }: PropsNotesClient) {
   };
 
   const { data, isLoading, isError, error } = useQuery({
-    queryKey: ["notes", page, debouncedSearch, category],
+    queryKey: ["notes", page, debouncedSearch, tag],
     queryFn: () =>
       fetchNotes({
         page,
         perPage: PER_PAGE,
         search: debouncedSearch,
-        tag: category,
+        tag: tag,
       }),
     placeholderData: (previousData) => previousData,
   });
@@ -62,7 +62,7 @@ export default function NotesClient({ category }: PropsNotesClient) {
           />
         )}
 
-        <Link className={css.button} href={"/notes/actions/create"}>
+        <Link className={css.button} href={"/notes/action/create"}>
           {" "}
           Create note +
         </Link>

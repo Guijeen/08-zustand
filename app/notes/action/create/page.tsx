@@ -5,12 +5,12 @@ import NoteForm from "@/components/NoteForm/NoteForm";
 import { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "Crezte note",
+  title: "Create note",
   description: "Create note",
   openGraph: {
     title: "Create note",
     description: "Create note",
-    url: `https://notehub.com/`,
+    url: `https://notehub.com/notes/action/create`,
     images: [
       {
         url: "https://ac.goit.global/fullstack/react/og-meta.jpg",
