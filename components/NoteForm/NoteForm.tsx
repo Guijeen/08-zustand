@@ -5,7 +5,7 @@ import { createNote } from "@/lib/api";
 import type { CreateNotePayload } from "@/lib/api";
 import css from "./NoteForm.module.css";
 import { useRouter } from "next/navigation";
-import { useNoteDraftStore } from "@/lib/stores/noteStore";
+import { useNoteDraftStore } from "@/lib/store/noteStore";
 
 // const initialValues: CreateNotePayload = {
 //   title: "",
